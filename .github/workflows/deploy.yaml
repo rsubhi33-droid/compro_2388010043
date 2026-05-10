@@ -36,4 +36,4 @@ jobs:
         script: |
           docker rm -f compro_2388010043 || true
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/compro_2388010043:latest
-          docker run -d --name compro_2388010043 -p 80:80 ${{ secrets.DOCKERHUB_USERNAME }}/compro_nim:latest
+          docker run -d --name compro_2388010043 -p 80:80 ${{ secrets.DOCKERHUB_USERNAME }}/compro_2388010043:latest
