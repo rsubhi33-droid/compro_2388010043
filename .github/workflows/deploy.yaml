@@ -1,3 +1,4 @@
+# Deploy
 name: Deploy Next.js to AWS EC2
 on:
   push:
