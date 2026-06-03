@@ -28,8 +28,8 @@ services:
       DB_PASSWORD: 12345
       DB_NAME: dbcompro
       DB_HOST: db-webdinamis
-      NEXTAUTH_SECRET: ini-kata-kata-bebas-saja-32-karekter
-      NEXTAUTH_URL: http://3.25.181.208:3000
+      NEXTAUTH_SECRET: rahasiadehjangankepoya1278934562
+      NEXTAUTH_URL: http://54.144.232.255:3000
     depends_on:
       - db-webdinamis
 

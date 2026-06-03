@@ -1,10 +1,10 @@
-name: Deploy to AWS EC2
+name: Deploy Next.js to AWS EC2
 on:
   push:
     branches: [ main ]
-    paths: 
-    - 'web-statis/**'
-    - '.github/workflows/deploy.yaml'
+    paths:
+      - 'web-statis/**'
+      - '.github/workflows/deploy.yaml'
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -19,14 +19,13 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
-        context: .
+        context: ./web-statis
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/compro_2388010043:latest
-
   deploy:
     needs: build-and-deploy
     runs-on: ubuntu-latest
-    name: Deploy to EC2 via SSH
+    name: Deploy to EC2 via SSH and run docker compose
     steps:
     - name: SSH and deploy
       uses: appleboy/ssh-action@v1.0.3
@@ -39,4 +38,3 @@ jobs:
           docker rm -f compro_2388010043 || true
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/compro_2388010043:latest
           docker run -d --name compro_2388010043 -p 80:80 ${{ secrets.DOCKERHUB_USERNAME }}/compro_2388010043:latest
-#ini tugas
