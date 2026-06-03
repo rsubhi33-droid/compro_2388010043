@@ -13,7 +13,7 @@ services:
     restart: always
 
   container-statis:
-    image: muciiboss/compro_2388010043:latest
+    image: uciiboss/compro_2388010043:latest
     ports:
       - "80:80"
     restart: always
